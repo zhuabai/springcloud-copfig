@@ -7,4 +7,24 @@ spring:
     config:
       server:
         git:
-          uri: 
+          uri: https://github.com/zhuabai/springcloud-copfig.git
+          search-paths:
+            - springcloud-config
+            - springcloud-config/myorder
+      label: master
+  rabbitmq:
+    host: 192.168.74.129
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+
+#rabbitmq相关配置，暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
